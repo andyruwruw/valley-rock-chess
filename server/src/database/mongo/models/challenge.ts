@@ -5,17 +5,12 @@ import {
 } from 'mongoose';
 
 const schema = new Schema({
-  gym: {
-    type: Schema.Types.ObjectId,
-    ref: 'Gym',
-    required: true,
-  },
-  owner: {
+  challenger: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
-  opponent: {
+  victim: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: false,
@@ -32,10 +27,18 @@ const schema = new Schema({
     type: Boolean,
     default: true,
   },
+  set: {
+    type: Date,
+    required: true,
+  },
+  accepted: {
+    type: Boolean,
+    default: false,
+  },
   created: {
     type: Date,
     default: Date.now(),
   },
 });
 
-export const GameModel = model('Game', schema);
+export const ChallengeModel = model('Challenge', schema);

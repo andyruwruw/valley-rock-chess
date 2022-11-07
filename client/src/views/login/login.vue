@@ -83,14 +83,14 @@ export default Vue.extend({
   margin-top: 5rem;
   color: white;
   font-size: 2rem;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .description {
   color: #dab5f3c1;
   font-weight: 100;
   font-size: 1rem;
-  margin: .7rem 0 1rem 0;
+  margin: .6rem 0 1rem 0;
   text-align: center;
   width: 90%;
 }

@@ -2,10 +2,45 @@
 // Local Imports
 import { UsedAbstractDatabaseError } from '../errors/used-abstract-database-error';
 
+// Types
+import {
+  Challenge,
+  DataAccessObjectInterface,
+  Game,
+  Gym,
+  Update,
+  User,
+} from '../types';
+
 /**
  * Abstract Database interface, only implement inherited classes.
  */
 export class Database {
+  /**
+   * Data access object for Challenges.
+   */
+  challenge: DataAccessObjectInterface<Challenge>;
+
+  /**
+   * Data access object for Challenges.
+   */
+  game: DataAccessObjectInterface<Game>;
+
+  /**
+   * Data access object for Challenges.
+   */
+  gym: DataAccessObjectInterface<Gym>;
+
+  /**
+   * Data access object for Challenges.
+   */
+  update: DataAccessObjectInterface<Update>;
+
+  /**
+   * Data access object for Challenges.
+   */
+  user: DataAccessObjectInterface<User>;
+
   /**
    * Connects to database.
    *

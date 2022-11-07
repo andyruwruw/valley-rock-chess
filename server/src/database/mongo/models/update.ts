@@ -5,17 +5,12 @@ import {
 } from 'mongoose';
 
 const schema = new Schema({
-  gym: {
+  game: {
     type: Schema.Types.ObjectId,
-    ref: 'Gym',
+    ref: 'Game',
     required: true,
   },
-  owner: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
-  opponent: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: false,
@@ -28,9 +23,9 @@ const schema = new Schema({
     type: Object,
     required: true,
   },
-  rated: {
-    type: Boolean,
-    default: true,
+  action: {
+    type: String,
+    required: true,
   },
   created: {
     type: Date,
@@ -38,4 +33,4 @@ const schema = new Schema({
   },
 });
 
-export const GameModel = model('Game', schema);
+export const UpdateModel = model('Update', schema);
