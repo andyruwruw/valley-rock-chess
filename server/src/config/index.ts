@@ -38,3 +38,13 @@ export const DEVELOPMENT_URL = 'http://localhost:3000';
  * Production URL for cors.
  */
 export const PRODUCTION_URL = '';
+
+/**
+ * Name of stored browser cookie.
+ */
+export const COOKIE_NAME = 'vallychess_auth';
+
+/**
+ * Authentication details.
+ */
+export const SALT_WORK_FACTOR = 12;

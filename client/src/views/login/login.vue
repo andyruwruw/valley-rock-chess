@@ -26,11 +26,12 @@
 
       <v-btn
         :disabled="!username.length"
+        style="margin-top: 1rem;"
+        color="#9843FF"
         dark
         block
         rounded
-        style="margin-top: 1rem;"
-        color="#9843FF">
+        @click="login({ username })">
         Enter
       </v-btn>
     </div>
@@ -38,34 +39,54 @@
 </template>
 
 <script lang="ts">
+// Packages
+import { mapActions } from 'vuex';
 import Vue from 'vue';
 
+// Local Imports
 import Graphic from './components/graphic.vue';
+import { LOGIN_MESSAGES } from '../../config';
 
 export default Vue.extend({
   name: 'login-view',
-
-  data: () => ({
-    messages: [
-      'The ultimate mashup no one asked for!',
-      'A totally unreasonable reason to climb.',
-      'Now you have a reason for volume days, play til you can\'t.',
-      'Remember not to run and still be respectful of climbers on the wall!',
-      'This is most likely a very very bad idea.',
-      'Now you can have two things to be worse than someone at!',
-    ],
-
-    username: '',
-  }),
 
   components: {
     Graphic,
   },
 
+  data: () => ({
+    /**
+     * Displayed messages.
+     */
+    messages: LOGIN_MESSAGES,
+
+    /**
+     * Input username.
+     */
+    username: '',
+  }),
+
   computed: {
+    /**
+     * Chosen message to be displayed.
+     */
     message() {
       return this.messages[Math.floor(Math.random() * this.messages.length)];
     },
+  },
+
+  created() {
+    this.handlePageLoad({ name: this.$route.name });
+  },
+
+  methods: {
+    ...mapActions('navigation', [
+      'handlePageLoad',
+    ]),
+
+    ...mapActions('user', [
+      'login',
+    ]),
   },
 });
 </script>
@@ -84,6 +105,7 @@ export default Vue.extend({
   color: white;
   font-size: 2rem;
   font-weight: 300;
+  animation: slide-up 1s ease 0s;
 }
 
 .description {
@@ -93,12 +115,14 @@ export default Vue.extend({
   margin: .6rem 0 1rem 0;
   text-align: center;
   width: 90%;
+  animation: hide .3s linear, slide-up 1s ease .3s;
 }
 
 .controls {
   width: calc(100% - 4rem);
   display: flex;
   flex-direction: column;
+  animation: hide .3s linear, slide-up 1s ease .3s;
 }
 
 .header {
@@ -106,5 +130,30 @@ export default Vue.extend({
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0%;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 0%;
+  }
+
+  99% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }
 </style>

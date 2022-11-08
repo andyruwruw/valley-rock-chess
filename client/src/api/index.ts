@@ -1,29 +1,57 @@
 // Local Imports
 import request from './request';
 
-const login = async (username: string) => {
+const acceptChallenge = async (username: string) => {
   try {
-    const response = await request.get(`/login?username=${username}`);
+    const response = await request.get('/accept-challenge');
 
     if (response.status === 200) {
       return response.data;
     }
+    return null;
   } catch (error) {
     return null;
   }
-}
+};
 
-const getGames = async () => {
+const challenge = async (username: string) => {
   try {
-    const response = await request.get('/get-games');
+    const response = await request.get('/challenge');
 
     if (response.status === 200) {
       return response.data;
     }
+    return null;
   } catch (error) {
     return null;
   }
-}
+};
+
+const checkUpdate = async (username: string) => {
+  try {
+    const response = await request.get('/check-update');
+
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const checkUser = async () => {
+  try {
+    const response = await request.get('/check-user');
+
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
 
 const createGame = async () => {
   try {
@@ -32,10 +60,76 @@ const createGame = async () => {
     if (response.status === 200) {
       return response.data;
     }
+    return null;
   } catch (error) {
     return null;
   }
-}
+};
+
+const finishGame = async () => {
+  try {
+    const response = await request.get('/finish-game');
+
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const login = async (username: string) => {
+  try {
+    const response = await request.get(`/login?username=${username}`);
+
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const updateChallenge = async () => {
+  try {
+    const response = await request.get('/update-challenge');
+
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const update = async () => {
+  try {
+    const response = await request.get('/update');
+
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const getGames = async () => {
+  try {
+    const response = await request.get('/get-games');
+
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
 
 const joinGame = async (id: string) => {
   try {
@@ -44,14 +138,22 @@ const joinGame = async (id: string) => {
     if (response.status === 200) {
       return response.data;
     }
+    return null;
   } catch (error) {
     return null;
   }
-}
+};
 
 export default {
-  login,
-  getGames,
+  acceptChallenge,
+  challenge,
+  checkUpdate,
+  checkUser,
   createGame,
+  finishGame,
+  login,
+  updateChallenge,
+  update,
+  getGames,
   joinGame,
 };

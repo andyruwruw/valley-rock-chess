@@ -8,6 +8,7 @@ import {
   DataAccessObjectInterface,
   Game,
   Gym,
+  Token,
   Update,
   User,
 } from '../types';
@@ -30,6 +31,11 @@ export class Database {
    * Data access object for Challenges.
    */
   gym: DataAccessObjectInterface<Gym>;
+
+  /**
+   * Data access object for Tokens.
+   */
+  token: DataAccessObjectInterface<Token>;
 
   /**
    * Data access object for Challenges.

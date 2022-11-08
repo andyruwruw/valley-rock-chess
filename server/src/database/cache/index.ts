@@ -3,6 +3,7 @@ import {
   ChallengeDataAccessObject,
   GameDataAccessObject,
   GymDataAccessObject,
+  TokenDataAccessObject,
   UpdateDataAccessObject,
   UserDataAccessObject,
 } from './daos';
@@ -30,6 +31,11 @@ export class CacheDatabase extends Database {
   gym: GymDataAccessObject;
 
   /**
+   * Data access object for Tokens.
+   */
+  token: TokenDataAccessObject;
+
+  /**
    * Data access object for Updates.
    */
   update: UpdateDataAccessObject;
@@ -48,6 +54,7 @@ export class CacheDatabase extends Database {
     this.challenge = new ChallengeDataAccessObject();
     this.game = new GameDataAccessObject();
     this.gym = new GymDataAccessObject();
+    this.token = new TokenDataAccessObject();
     this.update = new UpdateDataAccessObject();
     this.user = new UserDataAccessObject();
   }

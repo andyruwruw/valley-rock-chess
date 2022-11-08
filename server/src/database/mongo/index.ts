@@ -10,7 +10,9 @@ import {
   GameDataAccessObject,
   GymDataAccessObject,
   UpdateDataAccessObject,
-  UserDataAccessObject,} from './daos';
+  UserDataAccessObject,
+  TokenDataAccessObject,
+} from './daos';
 import { Database } from '../database';
 import { DatabaseUrlMissingError } from '../../errors/database-url-missing';
 import { MESSAGE_DATABASE_CONNECTION_SUCCESS } from '../../config/messages';
@@ -36,6 +38,11 @@ export class MongoDatabase extends Database {
   gym: GymDataAccessObject;
 
   /**
+   * Data access object for Tokens.
+   */
+  token: TokenDataAccessObject;
+
+  /**
    * Data access object for Updates.
    */
   update: UpdateDataAccessObject;
@@ -54,6 +61,7 @@ export class MongoDatabase extends Database {
     this.challenge = new ChallengeDataAccessObject();
     this.game = new GameDataAccessObject();
     this.gym = new GymDataAccessObject();
+    this.token = new TokenDataAccessObject();
     this.update = new UpdateDataAccessObject();
     this.user = new UserDataAccessObject();
   }

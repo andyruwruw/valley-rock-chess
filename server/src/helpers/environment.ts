@@ -99,4 +99,13 @@ export class Environment {
   static isUpdateLayerEnabled(): boolean {
     return process.env.DISABLE_UPDATE_LAYER !== 'true';
   }
+
+  /**
+   * Retrieves authentication secret.
+   *
+   * @returns {string} Authentication secret.
+   */
+  static getSecret(): string {
+    return process.env.SECRET || (Math.random() + 1).toString(36).substring(7);
+  }
 }

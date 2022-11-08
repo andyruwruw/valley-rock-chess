@@ -127,13 +127,22 @@ export interface Challenge {
 /**
  * Update database object.
  */
- export interface Update {
+export interface Update {
   _id?: string;
   game: string;
   user: string;
   type: string;
   settings: GameSettings;
   action: string;
+  created?: Date;
+}
+
+/**
+ * Token database object.
+ */
+export interface Token {
+  user: string;
+  token: string;
   created?: Date;
 }
 

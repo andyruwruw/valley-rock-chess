@@ -5,8 +5,8 @@ import {
 } from '@vercel/node';
 
 // Local Imports
-import ROUTES from '../../src/handlers';
-import { handleCors } from '../../src/helpers/cors';
+import ROUTES from '../src/handlers';
+import { handleCors } from '../src/helpers/cors';
 
 /**
  * Routes all incoming Vercel Serverless Function requests to the appropriate endpoint.
@@ -21,10 +21,7 @@ export default async function (
   /**
    * ID of endpoint.
    */
-  const {
-    item,
-    action,
-  } = req.query;
+  const { action } = req.query;
 
   /**
    * Deal with pesky cors.
@@ -37,7 +34,7 @@ export default async function (
   /**
    * Execute function.
    */
-  await ROUTES[item as string][action as string].execute(
+  await ROUTES[action as string].execute(
     req,
     res,
   );

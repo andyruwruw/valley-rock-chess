@@ -22,6 +22,16 @@ const routes: Array<RouteConfig> = [
     name: 'game',
     component: () => import('../views/game/game.vue'),
   },
+  {
+    path: '/game/create',
+    name: 'create-game',
+    component: () => import('../views/game/game.vue'),
+  },
+  {
+    path: '/profile/:id',
+    name: 'profile',
+    component: () => import('../views/game/game.vue'),
+  },
 ];
 
 const router = new VueRouter({

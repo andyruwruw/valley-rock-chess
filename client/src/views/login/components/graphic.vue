@@ -69,7 +69,7 @@ export default Vue.extend({
     rgba(123, 89, 244, 0.82) 0%,
     rgba(227,122,246,1) 100%);
   position: relative;
-  animation: morph 20s ease-in-out -.2s infinite;
+  animation: slide-down .5s ease 0s, morph 20s ease-in-out 0s infinite;
 }
 
 .character {
@@ -127,6 +127,31 @@ export default Vue.extend({
     border-top-left-radius: 10rem;
     border-bottom-left-radius: 1rem;
     border-top-right-radius: 1rem;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0%;
+    transform: translateY(-3rem);
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 0%;
+  }
+
+  99% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
   }
 }
 </style>
