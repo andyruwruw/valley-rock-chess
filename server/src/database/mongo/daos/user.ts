@@ -26,7 +26,7 @@ export class UserDataAccessObject
    */
   async create(
     username: string,
-    image: string = '',
+    image: string = `${Math.ceil(Math.random() * 82)}`,
   ): Promise<User> {
     return this._create({
       username,

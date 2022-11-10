@@ -58,7 +58,7 @@ export default Vue.extend({
   }),
 
   async created() {
-    const users = await api.getScoreboard();
+    const users = await api.getScoreboard(this.getUser._id);
 
     const placements = Object.keys(users);
 

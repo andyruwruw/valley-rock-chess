@@ -131,9 +131,9 @@ const getGames = async () => {
   }
 };
 
-const getScoreboard = async () => {
+const getScoreboard = async (id: string) => {
   try {
-    const response = await request.get('/get-scoreboard');
+    const response = await request.get(`/get-scoreboard?id=${id}`);
 
     if (response.status === 200) {
       return response.data.scoreboard;

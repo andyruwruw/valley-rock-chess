@@ -27,7 +27,9 @@ export class GetScoreboardHandler extends AbstractHandler {
     res: ValleyResponse,
   ): Promise<void> {
     try {
-      const user = await validate(req, AbstractHandler.database);
+      const {
+        id,
+      } = req.query;
 
       const users = await AbstractHandler.database.user.find();
 
@@ -36,7 +38,7 @@ export class GetScoreboardHandler extends AbstractHandler {
       const ordered = {};
 
       for (let i = 0; i < users.length; i += 1) {
-        if (i < 5 || users[i]._id == user._id) {
+        if (i < 5 || users[i]._id == id) {
           ordered[i] = users[i];
         }
       }

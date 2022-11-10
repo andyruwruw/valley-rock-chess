@@ -25,13 +25,14 @@
         dark />
 
       <v-btn
+        :loading="loggingIn"
         :disabled="!username.length"
         style="margin-top: 1rem;"
         color="#9843FF"
         dark
         block
         rounded
-        @click="login({ username })">
+        @click="handleLogin()">
         Enter
       </v-btn>
     </div>
@@ -64,6 +65,11 @@ export default Vue.extend({
      * Input username.
      */
     username: '',
+
+    /**
+     * Whether we're logging in.
+     */
+    loggingIn: false,
   }),
 
   computed: {
@@ -87,6 +93,12 @@ export default Vue.extend({
     ...mapActions('user', [
       'login',
     ]),
+
+    async handleLogin() {
+      this.loggingIn = true;
+      await this.login({ username: this.username });
+      this.loggingIn = false;
+    },
   },
 });
 </script>
@@ -97,11 +109,11 @@ export default Vue.extend({
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100% - 2rem);
+  height: calc(100% - 6rem);
 }
 
 .title {
-  margin-top: 5rem;
+  margin-top: 4rem;
   color: white;
   font-size: 2rem;
   font-weight: 300;

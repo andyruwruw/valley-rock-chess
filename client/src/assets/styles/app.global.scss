@@ -13,6 +13,11 @@ span {
   background: #202128;
 }
 
-html {
+html,
+body,
+.v-application,
+.v-application--wrap,
+.v-main,
+.v-main__wrap {
   overflow: hidden;
 }
