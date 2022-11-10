@@ -59,7 +59,7 @@ export default Vue.extend({
 <style lang="scss" module>
 .component {
   width: 60%;
-  height: 50vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,14 +75,14 @@ export default Vue.extend({
 .character {
   top: 0rem;
   position: absolute;
-  width: 200%;
+  width: 150%;
   animation: hover 5s ease-in-out -.2s infinite;
 }
 
 .object {
   top: 0rem;
   position: absolute;
-  width: 200%;
+  width: 150%;
 }
 
 .object-1 {

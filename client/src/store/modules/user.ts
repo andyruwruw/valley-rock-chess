@@ -103,10 +103,10 @@ const actions: ActionTree<AuthModuleState, any> = {
     dispatch,
   }, { username }): Promise<void> {
     try {
-      const user = await api.login(username);
+      const response = await api.login(username);
 
-      if (user) {
-        commit('setUser', user);
+      if (response.user) {
+        commit('setUser', response.user);
         dispatch('navigation/goToHome', undefined, { root: true });
       }
     } catch (error) {

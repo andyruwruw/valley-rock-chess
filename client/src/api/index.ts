@@ -131,6 +131,19 @@ const getGames = async () => {
   }
 };
 
+const getScoreboard = async () => {
+  try {
+    const response = await request.get('/get-scoreboard');
+
+    if (response.status === 200) {
+      return response.data.scoreboard;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
+
 const joinGame = async (id: string) => {
   try {
     const response = await request.get(`/join-game?id=${id}`);
@@ -155,5 +168,6 @@ export default {
   updateChallenge,
   update,
   getGames,
+  getScoreboard,
   joinGame,
 };
