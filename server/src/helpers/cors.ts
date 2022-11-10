@@ -9,6 +9,7 @@ import {
 
 /**
  * Does cors stuff.
+ *
  * @param {ValleyRequest} req Incoming request.
  * @param {ValleyResponse} res Outgoing response.
  */
@@ -18,7 +19,11 @@ export const handleCors = (
 ): void => {
   res.setHeader(
     'Access-Control-Allow-Origin',
-    Environment.getOrigin(),
+    '*',
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    '*',
   );
   res.setHeader(
     'Access-Control-Allow-Headers',

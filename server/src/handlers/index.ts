@@ -8,6 +8,7 @@ import { CreateGymHandler } from './create-gym';
 import { DeleteUserHandler } from './delete-user';
 import { FinishGameHandler } from './finish-game';
 import { GetGamesHandler } from './get-games';
+import { GetScoreboardHandler } from './get-scoreboard';
 import { JoinGameHandler } from './join-game';
 import { LoginHandler } from './login';
 import { RemoveGameHandler } from './remove-game';
@@ -17,7 +18,7 @@ import { UpdateHandler } from './update';
 
 export default {
   'accept-challenge': AcceptChallengeHandler,
-  'challenge': ChallengeHandler,
+  challenge: ChallengeHandler,
   'check-update': CheckUpdateHandler,
   'check-user': CheckUserHandler,
   'create-game': CreateGameHandler,
@@ -25,10 +26,11 @@ export default {
   'delete-user': DeleteUserHandler,
   'finish-game': FinishGameHandler,
   'get-games': GetGamesHandler,
+  'get-scoreboard': GetScoreboardHandler,
   'join-game': JoinGameHandler,
-  'login': LoginHandler,
+  login: LoginHandler,
   'remove-game': RemoveGameHandler,
   'update-challenge': UpdateChallengeHandler,
   'update-gym': UpdateGymHandler,
-  'update': UpdateHandler,
+  update: UpdateHandler,
 };

@@ -2,6 +2,7 @@
 import * as bcrypt from 'bcrypt';
 
 // Local Imports
+import { Request } from 'express';
 import {
   getCookie,
   decodeToken,
@@ -10,7 +11,6 @@ import { Database } from '../database/database';
 import { SALT_WORK_FACTOR } from '../config';
 
 // Types
-import { Request } from 'express';
 import { User } from '../types';
 
 /**
@@ -38,12 +38,10 @@ export const hashPassword = async (password: string): Promise<string> => {
 export const comparePassword = async (
   valid: string,
   subject: string,
-): Promise<boolean> => {
-  return bcrypt.compare(
-    subject,
-    valid,
-  );
-};
+): Promise<boolean> => bcrypt.compare(
+  subject,
+  valid,
+);
 
 /**
  * Validates a request and returns user.

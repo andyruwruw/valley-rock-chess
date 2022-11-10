@@ -1,6 +1,5 @@
 // Local Imports
 import {
-  MESSAGE_CREATE_HANDLER_DUPLICATE_ENTRY_ERROR,
   MESSAGE_HANDLER_PARAMETER_MISSING,
   MESSAGE_INTERNAL_SERVER_ERROR,
   MESSAGE_ITEM_MISSING,
@@ -35,7 +34,7 @@ export class CreateGameHandler extends AbstractHandler {
         owner,
         type,
         settings,
-        rated
+        rated,
       } = req.query;
 
       // Are the required fields provided?
@@ -93,7 +92,7 @@ export class CreateGameHandler extends AbstractHandler {
         });
       }
 
-      let game = await AbstractHandler.database.game.create(
+      const game = await AbstractHandler.database.game.create(
         gym,
         owner,
         type,

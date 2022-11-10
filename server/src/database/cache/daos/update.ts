@@ -6,7 +6,6 @@ import {
   Update,
   DataAccessObjectInterface,
   GameSettings,
-  GameType,
 } from '../../../types';
 
 /**

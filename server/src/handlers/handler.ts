@@ -10,6 +10,7 @@ import {
   ValleyResponse,
 } from '../types';
 import { Monitor } from '../helpers/monitor';
+import { MESSAGE_DATABASE_CONNECTION_SUCCESS } from '../config/messages';
 
 /**
  * Abstract handler class.
@@ -31,9 +32,9 @@ export class Handler {
   constructor() {
     if (!Handler.database) {
       Handler.database = getDatabase(Environment.getDatabaseType());
-    }
 
-    this._connectDatabase();
+      console.log(Environment.getDatabaseType(), Handler.database);
+    }
   }
 
   /**
@@ -51,13 +52,19 @@ export class Handler {
   /**
    * Connects to the database.
    */
-  async _connectDatabase(): Promise<void> {
+  async connectDatabase(): Promise<void> {
     try {
       if (!Handler.database.isConnected()) {
         await Handler.database.connect(
           Environment.getDatabaseUrl(),
           Environment.getDatabaseUser(),
           Environment.getDatabasePassword(),
+        );
+
+        Monitor.trace(
+          Handler,
+          MESSAGE_DATABASE_CONNECTION_SUCCESS,
+          Monitor.Layer.UPDATE,
         );
       }
 

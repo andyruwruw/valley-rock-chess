@@ -52,6 +52,8 @@ export class LoginHandler extends AbstractHandler {
         user = await AbstractHandler.database.user.create(username);
       }
 
+      console.log(user);
+
       // Add authentication cookie.
       const token = generateToken({
         id: user._id,
@@ -60,7 +62,7 @@ export class LoginHandler extends AbstractHandler {
         res,
         token,
       );
-      
+
       // Register token.
       await AbstractHandler.database.token.create(
         user._id,

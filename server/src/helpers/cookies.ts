@@ -47,15 +47,13 @@ export const attatchCookie = (
 export const generateToken = (
   data: any,
   expires = '24h',
-): string => {
-  return jsonwebtoken.sign(
-    data,
-    Environment.getSecret(),
-    {
-      expiresIn: expires,
-    },
-  );
-};
+): string => jsonwebtoken.sign(
+  data,
+  Environment.getSecret(),
+  {
+    expiresIn: expires,
+  },
+);
 
 /**
  * Decodes a signed token.
@@ -63,9 +61,7 @@ export const generateToken = (
  * @param {string} token Signed token.
  * @returns {any} Data from token.
  */
-export const decodeToken = (token: string): any => {
-  return jsonwebtoken.verify(
-    token,
-    Environment.getSecret(),
-  );
-};
+export const decodeToken = (token: string): any => jsonwebtoken.verify(
+  token,
+  Environment.getSecret(),
+);

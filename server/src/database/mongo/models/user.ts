@@ -18,36 +18,40 @@ const schema = new Schema({
     of: {
       type: Number,
     },
+    default: [ 0, 0 ],
   },
   horse: {
     type: Array,
     of: {
       type: Number,
     },
+    default: [ 0, 0 ],
   },
   timeControl: {
     type: Array,
     of: {
       type: Number,
     },
+    default: [ 0, 0 ],
   },
   boulderBattle: {
     type: Array,
     of: {
       type: Number,
     },
+    default: [ 0, 0 ],
   },
   image: {
     type: String,
-    required: true,
+    default: '',
   },
   maxV: {
     type: Number,
-    required: true,
+    default: -1,
   },
   chessElo: {
     type: Number,
-    required: true,
+    default: -1,
   },
   created: {
     type: Date,

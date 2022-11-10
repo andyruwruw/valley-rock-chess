@@ -16,36 +16,6 @@ import { MESSAGE_DATABASE_CACHE_CONNECTION_SUCCESS } from '../../config/messages
  */
 export class CacheDatabase extends Database {
   /**
-   * Data access object for Challenges.
-   */
-  challenge: ChallengeDataAccessObject;
-
-  /**
-   * Data access object for Games.
-   */
-  game: GameDataAccessObject;
-
-  /**
-   * Data access object for Gyms.
-   */
-  gym: GymDataAccessObject;
-
-  /**
-   * Data access object for Tokens.
-   */
-  token: TokenDataAccessObject;
-
-  /**
-   * Data access object for Updates.
-   */
-  update: UpdateDataAccessObject;
-
-  /**
-   * Data access object for Users.
-   */
-  user: UserDataAccessObject;
-
-  /**
     * Instantiates CacheDatabase with correct queries.
     */
   constructor() {

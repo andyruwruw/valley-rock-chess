@@ -31,10 +31,16 @@ export default async function (
     res,
   );
 
+  const handler = new ROUTES[action as string]();
+
+  await handler.connectDatabase();
+
   /**
+   * 
+   * 
    * Execute function.
    */
-  await ROUTES[action as string].execute(
+  await handler.execute(
     req,
     res,
   );

@@ -65,7 +65,11 @@ export interface BoulderBattleSettings {
 /**
  * Game settings object.
  */
-export type GameSettings = VolumeDaySettings | HorseSettings | TimeControlSettings | BoulderBattleSettings;
+export type GameSettings =
+  VolumeDaySettings
+  | HorseSettings
+  | TimeControlSettings
+  | BoulderBattleSettings;
 
 /**
  * Game database object.
@@ -149,7 +153,14 @@ export interface Token {
 /**
  * Types of data in the database.
  */
-export type DatabaseColumnTypes = string | number | boolean | Date | string[] | number[] | GameSettings;
+export type DatabaseColumnTypes =
+  string
+  | number
+  | boolean
+  | Date
+  | string[]
+  | number[]
+  | GameSettings;
 
 /**
  * Filter object used to limit queries.
@@ -160,12 +171,12 @@ export interface QueryFilter {
   | Record<string, DatabaseColumnTypes
   | DatabaseColumnTypes[]>;
 }
- 
+
 /**
  * Projection on queries to limit columns.
  */
 export type QueryProjection = Record<string, number> | string | string[];
- 
+
 /**
  * Update object used to update data in the database.
  */
@@ -212,10 +223,12 @@ export interface DataAccessObjectInterface<T> {
 
   clear: () => Promise<void>;
 }
- 
+
 export interface HandlerInterface {
-  execute(
+  execute: (
     req: PathwayRequest,
     res: PathwayResponse,
-  ): Promise<void>;
+  ) => Promise<void>;
+
+  connectDatabase: () => Promise<void>;
 }

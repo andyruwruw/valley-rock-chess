@@ -24,6 +24,7 @@ export class UpdateChallengeHandler extends AbstractHandler {
     res: ValleyResponse,
   ): Promise<void> {
     try {
+      return res.send(null);
     } catch (error) {
       Monitor.trace(
         UpdateChallengeHandler,

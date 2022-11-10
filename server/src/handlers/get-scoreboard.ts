@@ -5,14 +5,17 @@ import { Monitor } from '../helpers/monitor';
 
 // Types
 import {
+  User,
   ValleyRequest,
   ValleyResponse,
 } from '../types';
+import { UserDataAccessObject } from '../database/cache/daos';
+import { validate } from '../helpers/authentication';
 
 /**
  * Creates a new gym.
  */
-export class FinishGameHandler extends AbstractHandler {
+export class GetScoreboardHandler extends AbstractHandler {
   /**
    * Handles the request.
    *
@@ -24,10 +27,26 @@ export class FinishGameHandler extends AbstractHandler {
     res: ValleyResponse,
   ): Promise<void> {
     try {
-      return res.send(null);
+      const user = await validate(req, AbstractHandler.database);
+
+      const users = await AbstractHandler.database.user.find();
+
+      users.sort((a: User, b: User) => (a.elo - b.elo));
+
+      const ordered = {};
+
+      for (let i = 0; i < users.length; i += 1) {
+        if (i < 5 || users[i]._id == user._id) {
+          ordered[i] = users[i];
+        }
+      }
+
+      return res.send({
+        scoreboard: ordered,
+      });
     } catch (error) {
       Monitor.trace(
-        FinishGameHandler,
+        GetScoreboardHandler,
         error,
         Monitor.Layer.WARNING,
       );
@@ -39,4 +58,4 @@ export class FinishGameHandler extends AbstractHandler {
   }
 }
 
-export default new FinishGameHandler();
+export default new GetScoreboardHandler();

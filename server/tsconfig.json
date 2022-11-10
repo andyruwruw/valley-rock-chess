@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
-    "module": "ES2015",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "ES2017",
+    "target": "esnext",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "typeRoots": [
       "node_modules/@types",
       "./src/types",
-    ]
-  }
+    ],
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

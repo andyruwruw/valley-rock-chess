@@ -28,7 +28,7 @@ export class GymDataAccessObject
   async create(
     displayName: string,
     vSystem = [] as string[],
-    climbs= [] as number[],
+    climbs = [] as number[],
   ): Promise<Gym> {
     return this._create({
       displayName,
