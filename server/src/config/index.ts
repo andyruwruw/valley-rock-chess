@@ -48,3 +48,20 @@ export const COOKIE_NAME = 'vallychess_auth';
  * Authentication details.
  */
 export const SALT_WORK_FACTOR = 12;
+
+/**
+ * Color of profiles.
+ */
+export const PROFILE_COLORS = [
+  '#A5236E',
+  '#F578B9',
+  '#EB1E4B',
+  '#F06937',
+  '#FAD223',
+  '#2D969B',
+  '#1E64AF',
+  '#69BEEB',
+  '#8CB45F',
+  '#232323',
+  '#F5F5FF',
+];

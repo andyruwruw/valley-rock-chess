@@ -109,6 +109,7 @@ export interface User {
   boulderBattle?: number[];
   image?: string;
   maxV?: number;
+  color?: string;
   chessElo?: number;
   created?: Date;
 }

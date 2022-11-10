@@ -14,6 +14,7 @@
         :key="user._id"
         :username="user.username"
         :image="user.image"
+        :color="user.color"
         :index="i"
         :gamesPlayed="computedGamesPlayed(user)"
         :elo="user.elo" />
@@ -23,6 +24,7 @@
         :key="getUser._id"
         :username="getUser.username"
         :image="getUser.image"
+        :color="user.color"
         :index="userIndex"
         :gamesPlayed="computedGamesPlayed(getUser)"
         :elo="user.elo" />

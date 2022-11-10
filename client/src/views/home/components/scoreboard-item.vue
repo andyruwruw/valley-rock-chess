@@ -5,24 +5,25 @@
         {{ index + 1 }}.
       </span>
 
-      <img
-        :class="$style.image"
-        :src="image"
-        class="elevation-1"
-        alt="#" />
+      <profile-photo
+        :image="image"
+        :color="color"
+        size="28" />
 
       <span :class="$style.username">
         {{ username }}
       </span>
     </div>
 
-    <span :class="$style.games">
-      {{ gamesPlayed }} Games
-    </span>
+    <div :class="$style.main">
+      <span :class="$style.games">
+        {{ gamesPlayed }} Games
+      </span>
 
-    <span :class="$style.games">
-      {{ elo }}
-    </span>
+      <span :class="$style.games">
+        {{ elo }}
+      </span>
+    </div>
   </div>
 </template>
 
@@ -30,12 +31,24 @@
 // Packages
 import Vue from 'vue';
 
+// Local Imports
+import ProfilePhoto from '../../../components/ui/image/profile-photo.vue';
+
 export default Vue.extend({
   name: 'home-scoreboard-item',
+
+  components: {
+    ProfilePhoto,
+  },
 
   props: {
     username: {
       type: String,
+    },
+
+    color: {
+      type: String,
+      default: undefined,
     },
 
     index: {
@@ -61,6 +74,7 @@ export default Vue.extend({
 .component {
   display: flex;
   justify-content: space-between;
+  margin: .5rem 0;
 }
 
 .main {
@@ -71,7 +85,7 @@ export default Vue.extend({
   color: rgba(255, 255, 255, 0.495);
   font-weight: 100;
   font-size: 1rem;
-  margin-right: .5rem;
+  padding-right: .5rem;
   line-height: 28px;
 }
 
@@ -79,17 +93,8 @@ export default Vue.extend({
   color: white;
   font-weight: 100;
   font-size: 1rem;
-  margin-right: .5rem;
+  padding-left: .5rem;
   line-height: 24px;
-}
-
-.image {
-  display: block;
-  width: 24px;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.317);
-  border-radius: 100%;
-  margin-right: .5rem;
 }
 
 .games {

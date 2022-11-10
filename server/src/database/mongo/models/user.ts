@@ -4,6 +4,9 @@ import {
   Schema,
 } from 'mongoose';
 
+// Local Imports
+import { PROFILE_COLORS } from '../../../config';
+
 const schema = new Schema({
   username: {
     type: String,
@@ -43,7 +46,11 @@ const schema = new Schema({
   },
   image: {
     type: String,
-    default: '',
+    default: `${Math.ceil(Math.random() * 82)}`,
+  },
+  color: {
+    type: String,
+    default: PROFILE_COLORS[Math.floor(Math.random() * PROFILE_COLORS.length)],
   },
   maxV: {
     type: Number,

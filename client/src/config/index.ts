@@ -9,3 +9,20 @@ export const LOGIN_MESSAGES = [
   'This is most likely a very very bad idea.',
   'Now you can have two things to be worse than someone at!',
 ];
+
+/**
+ * Color of profiles.
+ */
+export const PROFILE_COLORS = [
+  '#A5236E',
+  '#F578B9',
+  '#EB1E4B',
+  '#F06937',
+  '#FAD223',
+  '#2D969B',
+  '#1E64AF',
+  '#69BEEB',
+  '#8CB45F',
+  '#232323',
+  '#F5F5FF',
+];

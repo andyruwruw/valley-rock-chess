@@ -85,6 +85,7 @@ export interface User {
   image?: string;
   maxV?: number;
   chessElo?: number;
+  color?: string;
   created?: Date;
 }
 
