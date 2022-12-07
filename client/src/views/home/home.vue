@@ -5,22 +5,24 @@
     <div :class="$style.options">
       <card-button
         text="Create Game"
-        color="#EB1E4B" />
+        color="#EB1E4B"
+        image="66" />
 
         <card-button
         text="Join Game"
-        color="#2D969B" />
+        color="#2D969B"
+        image="62" />
 
         <card-button
         text="Scoreboard"
-        color="#F06937" />
+        color="#F06937"
+        image="41" />
 
         <card-button
         text="Profile"
-        color="#1E64AF" />
+        color="#1E64AF"
+        image="35" />
     </div>
-
-    <scoreboard />
   </div>
 </template>
 
@@ -31,7 +33,6 @@ import Vue from 'vue';
 
 // Local Imports
 import Toolbar from './components/toolbar.vue';
-import Scoreboard from './components/scoreboard.vue';
 import CardButton from '../../components/ui/buttons/card-button.vue';
 
 export default Vue.extend({
@@ -39,7 +40,6 @@ export default Vue.extend({
 
   components: {
     Toolbar,
-    Scoreboard,
     CardButton,
   },
 
